@@ -33,14 +33,14 @@ end
 % seed filename
 seedfile={};
 for v=1:length(usevat)
-    seedfile{v}=[directory,'stimulations',filesep,vsname,filesep,'vat_',usevat{options.sides(v)},'.nii'];
+    seedfile{v}=[directory,'stimulations',filesep,ea_nt(options),vsname,filesep,'vat_',usevat{options.sides(v)},'.nii'];
 end
 
 for side=1:length(usevat)
     try
-        load([directory,'stimulations',filesep,vsname,filesep,'stimparameters.mat']);
+        load([directory,'stimulations',filesep,ea_nt(options),vsname,filesep,'stimparameters.mat']);
     catch
-        ea_error(['Could not find stimulation parameters for ',directory,vsname,'.']);
+        eea_error(['Could not find stimulation parameters for ',directory,ea_nt(options),vsname,'.']);
     end
 end
 
